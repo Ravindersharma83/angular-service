@@ -1,0 +1,17 @@
+1. create service.ts in a seprate folder.
+2. create a user service array in service.ts file and fetch this file record in app.component.ts file
+3. Injecting user-service in the app.component (in constructor) so app component and it's child component can easily access the service data.
+4. provide this service inside component directive
+  - providers:[UserService] (on;y in parent component)
+5. call service from any component where you want to use it and that's it.
+
+** Injecting service into another service **
+
+1- create a new service file called (logger.service.ts)
+2- In user service.ts (Receiver service file)
+    - create an instance is logger service inside the user service
+        - constructor(private logger: LoggerService){}
+    - use @Injectable to inject something from logger service to user service
+        - @Injectable
+    - for providing this service to a component (app.component.ts)
+        - constructor(private userService : UserService, private logger : LoggerService){}
